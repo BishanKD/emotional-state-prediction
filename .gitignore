@@ -1,0 +1,14 @@
+# Ignore virtual environment
+env/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore models and logs
+model/
+*.pkl
+mlruns/
+
+# Ignore secrets
+.env
