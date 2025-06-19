@@ -14,7 +14,7 @@ def clean_text(text):
     text = emoji.replace_emoji(text, replace="")
     text = re.sub(r"[^a-z\s]", "", text)
     tokens = word_tokenize(text)
-    tokens = [word for word in tokens if word not in STOPWORDS]
+    tokens = [word for word in tokens if ((word not in STOPWORDS) and (word != "grateful"))]
     return " ".join(tokens)
 
 def preprocess_dataframe(df):
