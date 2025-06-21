@@ -24,7 +24,7 @@ if st.button("Predict Emotion"):
 
                 # Color-coded feedback
                 if score > 0.8:
-                    msg = "You're feeling great! 🎉"
+                    msg = "You're feeling ecstatic! 🎉"
                     color = "🟢"
                 elif score > 0.5:
                     msg = "You're doing great. 🙂"

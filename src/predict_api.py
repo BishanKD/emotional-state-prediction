@@ -15,6 +15,10 @@ app = FastAPI()
 class InputText(BaseModel):
     text: str
 
+@app.get("/")
+def root():
+    return {"status": "API is running"}
+
 @app.post("/predict")
 def predict_emotion(data: InputText):
     clean = clean_text(data.text)
