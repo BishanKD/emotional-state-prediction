@@ -6,8 +6,6 @@ __pycache__/
 *.pyc
 
 # Ignore models and logs
-model/
-*.pkl
 mlruns/
 
 # Ignore secrets
