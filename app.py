@@ -9,6 +9,26 @@ st.write("Describe how you’ve been feeling lately:")
 
 user_input = st.text_area("Your response:", height=150)
 
+st.markdown("""
+<style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0E1117;
+    color: #FAFAFA;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    border-top: 1px solid #262730;
+}
+</style>
+<div class="footer">
+    Made with ❤️ by <a href="https://github.com/BishanKD" target="_blank">Bishan Kumar Deka</a>
+</div>
+""", unsafe_allow_html=True)
+
 if st.button("Predict Emotion"):
     if not user_input.strip():
         st.warning("Please enter something.")
@@ -27,7 +47,7 @@ if st.button("Predict Emotion"):
                     msg = "You're feeling ecstatic! 🎉"
                     color = "🟢"
                 elif score > 0.5:
-                    msg = "You're doing great. 🙂"
+                    msg = "You're doing great. 😊"
                     color = "🟡"
                 elif score > 0.3:
                     msg = "You might be feeling low. 😟"
