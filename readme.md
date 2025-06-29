@@ -2,20 +2,18 @@
 
 Predict the emotional wellbeing score of a user from natural language input, using a regression model trained on Reddit posts. The model outputs a continuous score from **0.0 (distressed)** to **1.0 (happy)** and is served through a full-stack application with a **FastAPI backend** and **Streamlit frontend**, fully containerized and deployed using **Docker** on **Render**.
 
----
 
-## Live website
+&nbsp;
+## <u>Live website</u>
 
 [Click here to try the app](https://emotional-state-prediction-ozq1.onrender.com)
 
----
-
+&nbsp;
 ## Objective
 
 > To build a real-time application that quantifies a user's emotional state from open-ended text, using posts scraped from emotionally themed Reddit subreddits as training data.
 
----
-
+&nbsp;
 ## Key Features
 
 - **Regression-based emotional scoring** on a 0–10 scale
@@ -28,8 +26,7 @@ Predict the emotional wellbeing score of a user from natural language input, usi
 - **Dockerized** app running both backend and frontend in a single container
 - **Deployed on Render** with one-click access — no local setup needed
 
----
-
+&nbsp;
 ## How to run locally
 
 Make sure you have docker installed
@@ -45,8 +42,7 @@ Then visit:
 - http://localhost:8000/docs (fastAPI docs): to test the fastAPI backend using Swagger UI
 - http://localhost:8501 : Streamlit app
 
---- 
-
+&nbsp;
 ## Web Scraping with PRAW
 
 Data is collected using the PRAW (Python Reddit API Wrapper) library.
@@ -59,8 +55,7 @@ Subreddits were selected to reflect a wide emotional spectrum, and each scraped 
 - Captures both title and selftext
 - Outputs are stored as .csv for further processing
 
----
-
+&nbsp;
 ## Dataset:
 
 Reddit posts were scraped using the PRAW API from emotionally representative subreddits (e.g., r/SuicideWatch, r/happy, r/offmychest). Each subreddit was assigned a continuous emotional score label between 0.0 (distressed) and 1.0 (happy)
@@ -78,6 +73,7 @@ Reddit posts were scraped using the PRAW API from emotionally representative sub
 | 0.1             | r/Anxiety         | Panic, worry, and helplessness                  |245                     |
 | 0.0             | r/SuicideWatch    | Mental health crisis and suicidal ideation      |456                     |
 
+&nbsp;
 ## How the Model Works
 This project frames emotional analysis as a regression problem, predicting a continuous score rather than a categorical label (happy vs unhappy)
 
@@ -102,16 +98,15 @@ A Ridge Regression baseline is also included for comparison.
     - A 0–10 scale
     - An emoji + feedback statement
 
----
-
+&nbsp;
 ## FastAPI Backend
 The model is served using a FastAPI application (src/predict_api.py), which:
     - Loads the trained model and vectorizer from .pkl files
     - Preprocesses user input using the same cleaning pipeline
     - Exposes a /predict POST endpoint for emotional score prediction
 
----
 
+&nbsp;
 ## Streamlit Frontend
 The user-facing app (app.py) is built in Streamlit, allowing users to:
     - Enter a free-form journal-style text input
@@ -119,6 +114,7 @@ The user-facing app (app.py) is built in Streamlit, allowing users to:
     - View score on a clean 0–10 scale
     - Get emotional feedback (color-coded + emoji)
 
+&nbsp;
 ## MLflow Experiment Tracking
 All model training runs (Ridge, Random Forest, etc.) are logged using MLflow, including:
 - Hyperparameters
@@ -126,8 +122,7 @@ All model training runs (Ridge, Random Forest, etc.) are logged using MLflow, in
 - Artifacts: serialized model and vectorizer
 - Experiment comparison through the MLflow UI
 
----
-
+&nbsp;
 ## Snapshots
 
 #### FastAPI backend /docs
@@ -145,6 +140,7 @@ All model training runs (Ridge, Random Forest, etc.) are logged using MLflow, in
 
 ---
 
+&nbsp;
 ## Author
 **Bishan Kumar Deka**
 B.Tech, Chemical Engineering
