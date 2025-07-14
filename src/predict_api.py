@@ -7,7 +7,9 @@ from src.preprocess import clean_text
 with open("models/vectorizer.pkl", "rb") as f:
     vectorizer = pickle.load(f)
 
-with open("models/rfr_model.pkl", "rb") as f:
+# with open("models/rfr_model.pkl", "rb") as f:
+#     model = pickle.load(f)
+with open("models/svr_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 app = FastAPI()
