@@ -5,7 +5,7 @@ st.set_page_config(page_title="Emotional State Checker", layout="centered")
 
 st.title("🧠 Emotional State Prediction")
 
-st.write("Describe how you’ve been feeling lately:")
+st.write("Write a bit about how life has been going lately:")
 
 user_input = st.text_area("Your response:", height=150)
 

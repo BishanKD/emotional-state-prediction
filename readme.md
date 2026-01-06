@@ -19,7 +19,7 @@ Predict the emotional wellbeing score of a user from natural language input, usi
 - **Regression-based emotional scoring** on a 0–10 scale
 - **Reddit scraping via PRAW** to collect real-world emotional language
 - **Text preprocessing pipeline** with cleaning, tokenization, and stopword removal
-- **TF-IDF + Random Forest Regressor**, trained with hyperparameter tuning
+- **GloVe Embeddings + LSTM Model**, tuned with KerasTuner
 - **MLflow logging** for model tracking, metrics, and reproducibility
 - **FastAPI backend** to serve predictions via REST API
 - **Streamlit frontend** for user interaction
@@ -42,23 +42,23 @@ Then visit:
 - http://localhost:8000/docs (fastAPI docs): to test the fastAPI backend using Swagger UI
 - http://localhost:8501 : Streamlit app
 
-&nbsp;
-## Web Scraping with PRAW
+<!-- &nbsp; -->
+<!-- ## Web Scraping with PRAW
 
 Data is collected using the PRAW (Python Reddit API Wrapper) library.
-Subreddits were selected to reflect a wide emotional spectrum, and each scraped post is automatically labeled with a corresponding emotion_score.
+Subreddits were selected to reflect a wide emotional spectrum, and each scraped post is automatically labeled with a corresponding emotion_score. -->
 
-#### Highlights:
+<!-- #### Highlights:
 
 - Secure credentials via .env
 - Filters out low-quality posts using submission.score > 1
 - Captures both title and selftext
-- Outputs are stored as .csv for further processing
+- Outputs are stored as .csv for further processing -->
 
 &nbsp;
 ## Dataset:
 
-Reddit posts were scraped using the PRAW API from emotionally representative subreddits (e.g., r/SuicideWatch, r/happy, r/offmychest). Each subreddit was assigned a continuous emotional score label between 0.0 (distressed) and 1.0 (happy)
+Reddit posts were scraped using the PRAW (Python Reddit API Wrapper) library, from emotionally representative subreddits (e.g., r/happy, r/offmychest, r/gratitude, r/SuicideWatch). Each subreddit was assigned a continuous emotional score label between 0.0 (distressed) and 1.0 (happy)
 
 | Emotional Score | Subreddit         | Description                                     | Number of posts scraped|
 | --------------- | ----------------- | ----------------------------------------------- |------------------------|
@@ -83,9 +83,9 @@ This project frames emotional analysis as a regression problem, predicting a con
 - Cleaned text is converted into a numerical vector using TF-IDF.
 
 ### Regression
-- The model is a Random Forest Regressor trained to map TF-IDF vectors to a float between 0.0 and 1.0.
+- It used a Long-Short Term Memory (LSTM) model fitted withva dense neural network, trained to map GloVe embedding vectors to a float between 0.0 and 1.0.
 - Labels are derived from subreddit-based emotional scores.
-- The model is tuned via GridSearchCV and evaluated using:
+- The model is tuned via KerasTuner and evaluated using:
     - MSE (Mean Squared Error)
     - MAE (Mean Absolute Error)
     - R² Score
